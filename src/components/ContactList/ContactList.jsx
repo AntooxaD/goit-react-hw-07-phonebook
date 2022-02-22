@@ -1,13 +1,11 @@
 import { BtnDelete, List, ListItem } from '../Styled/Styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../Redux/contactActions';
-import { getContacts } from '../../Redux/selectors';
+import { useDispatch } from 'react-redux';
+import { delContact } from '../../redux/contactActions';
 
-function ContactList() {
+import { useCallback } from 'react';
+function ContactList({ contacts }) {
     const dispatch = useDispatch();
-    const onDelete = id => dispatch(deleteContact(id));
-
-    const contacts = useSelector(getContacts);
+    const onDelete = useCallback(id => dispatch(delContact(id)), [dispatch]);
 
     return (
         <List>

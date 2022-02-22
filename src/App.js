@@ -1,13 +1,18 @@
 import './App.css';
-import ContactForm from './Components/ContactForm/ContactForm';
-import ContactList from './Components/ContactList/ContactList';
-import Filter from './Components/Filter/Filter';
-import { Title, Text } from './Components/Styled/Styled';
-import { useSelector } from 'react-redux';
-import { getContacts } from './Redux/selectors';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
+import Filter from './components/Filter/Filter';
+import { Title, Text } from './components/Styled/Styled';
+import { useSelector, useDispatch } from 'react-redux';
+import { getContacts } from './redux/selectors';
+import { useEffect } from 'react';
+import { fetchContact } from './redux/contactActions';
 
 function App() {
     const contacts = useSelector(getContacts);
+    const dispatch = useDispatch();
+
+    useEffect(() => dispatch(fetchContact()), [dispatch]);
     return (
         <div className="App">
             <Title>Phonebook</Title>

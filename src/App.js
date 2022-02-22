@@ -1,10 +1,10 @@
 import './App.css';
-import ContactForm from './components/ContactForm/ContactForm';
-import ContactList from './components/ContactList/ContactList';
-import Filter from './components/Filter/Filter';
-import { Title, Text } from './components/Styled/Styled';
+import ContactForm from './Components/ContactForm/ContactForm';
+import ContactList from './Components/ContactList/ContactList';
+import Filter from './Components/Filter/Filter';
+import { Title, Text } from './Components/Styled/Styled';
 import { useSelector } from 'react-redux';
-import { getContacts } from './redux/selectors';
+import { getContacts } from './Redux/selectors';
 
 function App() {
     const contacts = useSelector(getContacts);

@@ -1,8 +1,8 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from '../service/api';
-import { ActionType } from './actionsType';
+
 export const fetchContact = createAsyncThunk(
-    ActionType.ADD_CONTACT,
+    'contacts/get',
     async (_, { rejectWithValue }) => {
         try {
             const contacts = await fetchContacts();
@@ -14,7 +14,7 @@ export const fetchContact = createAsyncThunk(
 );
 
 export const addNewContact = createAsyncThunk(
-    ActionType.GET_CONTACTS,
+    'contacts/add',
     async (payload, { rejectWithValue }) => {
         try {
             const contact = await addContact(payload);
@@ -26,7 +26,7 @@ export const addNewContact = createAsyncThunk(
 );
 
 export const delContact = createAsyncThunk(
-    ActionType.DELETE_CONTACT,
+    'contacts/delete',
     async (id, { rejectWithValue }) => {
         try {
             const contacts = await deleteContact(id);

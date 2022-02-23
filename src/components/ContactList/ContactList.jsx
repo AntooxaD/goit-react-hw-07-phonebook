@@ -1,12 +1,12 @@
 import { BtnDelete, List, ListItem } from '../Styled/Styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { delContact } from '../../redux/contactActions';
-import { getContacts } from '../../redux/selectors';
+import { getVisibleContacts } from '../../redux/selectors';
 
 function ContactList() {
     const dispatch = useDispatch();
     const onDelete = id => dispatch(delContact(id));
-    const contacts = useSelector(getContacts);
+    const contacts = useSelector(getVisibleContacts);
 
     return (
         <List>

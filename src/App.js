@@ -4,12 +4,12 @@ import ContactList from './components/ContactList/ContactList';
 import Filter from './components/Filter/Filter';
 import { Title, Text } from './components/Styled/Styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from './redux/selectors';
+import { getVisibleContacts } from './redux/selectors';
 import { useEffect } from 'react';
 import { fetchContact } from './redux/contactActions';
 
 function App() {
-    const contacts = useSelector(getContacts);
+    const contacts = useSelector(getVisibleContacts);
     const dispatch = useDispatch();
 
     useEffect(() => dispatch(fetchContact()), [dispatch]);

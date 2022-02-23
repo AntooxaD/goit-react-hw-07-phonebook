@@ -6,7 +6,7 @@ import { getFilter } from '../../redux/selectors';
 function Filter() {
     const dispatch = useDispatch();
     const filter = useSelector(getFilter);
-    const onChange = data => dispatch(filterContact(data.currentTarget.value));
+    const onChange = data => dispatch(filterContact(data.target.value));
 
     return (
         <label>

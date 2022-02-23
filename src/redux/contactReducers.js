@@ -9,10 +9,7 @@ import {
 
 const items = createReducer([], {
     [fetchContact.fulfilled]: (_, { payload }) => payload,
-    [addNewContact.fulfilled]: (state, { payload }) =>
-        state.find(({ name }) => name === payload.name)
-            ? alert(`${payload.name} is already in contacts`)
-            : [...state, payload],
+    [addNewContact.fulfilled]: (state, { payload }) => [...state, payload],
     [delContact.fulfilled]: (state, { payload }) =>
         state.filter(({ id }) => id !== payload),
 });

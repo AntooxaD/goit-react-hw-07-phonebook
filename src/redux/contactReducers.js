@@ -8,7 +8,7 @@ import {
 } from './contactActions';
 
 const items = createReducer([], {
-    [fetchContact.fulfilled]: (_, action) => action.payload,
+    [fetchContact.fulfilled]: (state, { payload }) => payload,
     [addNewContact.fulfilled]: (state, { payload }) =>
         state.find(({ name }) => name === payload.name)
             ? alert(`${payload.name} is already in contacts`)
